@@ -1,0 +1,21 @@
+<!doctype html>
+<html >
+  <head>
+     <script  src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+      <script src="https://code.angularjs.org/1.6.9/angular.js"></script> 
+    <script src="bootstrap.min.js"></script>
+    <link rel="stylesheet" href="css/editor.css">
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+	<link rel="stylesheet" href="css/colorpicker.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="bootstrap-color-picker.js"></script>
+     <script src="editorController.js"></script>
+    <script src="richTextDirective.js"></script>
+  </head>
+  <body ng-app="app">
+    <div ng-controller="EditorCtrl">
+        <h1>Wysiwig editor!</h1>
+        <rich-text-editor textarea-class="form-control"  textarea-height="180px"  content="content" config="editorConfig"></rich-text-editor>
+    </div>
+  </body>
+</html>
