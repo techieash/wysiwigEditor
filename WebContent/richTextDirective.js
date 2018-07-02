@@ -6,7 +6,7 @@ var editorTemplate = "<div  ng-hide=\"editMode\">" +
 	"<div ng-switch=\"editMode\" ng-click=\"editMode = !editMode\" class=\"toggle\"><span ng-switch-when=\"true\">wysiwyg</span><span ng-switch-default>source</span></div>" +
 	"</div>" +
 	"</div>";
-var Wysiwig = angular.module("Wysiwig", []);
+var Wysiwig = angular.module("Wysiwig", ['colorpicker.module']);
 Wysiwig.directive("richTextEditor", function($compile) {
     return {
     	restrict:"E",
@@ -70,7 +70,7 @@ Wysiwig.directive("richTextEditor", function($compile) {
 						html += ' title= "'+ button + '"'+ " unselectable='on' tabindex='-1' ";
 						html+=" class='btn btn-default";
 						if(stylesForButton[button] && stylesForButton[button].color){
-							html+=stylesForButton[button].cssclass+'\' colorpicker="rgba" colorpicker-position="top"';
+							html+=stylesForButton[button].cssclass+'\' colorpicker="rgba" colorpicker-position="bottom"';
 						}else{
 							html+="'";
 						}
