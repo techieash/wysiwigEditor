@@ -56,7 +56,7 @@ Wysiwig.directive("richTextEditor", function($compile) {
 					colors:{type:"button",tabindex:"-1",unselectable:"on",fontColor:{color:true,name:"A" ,model:"fontColor",cssclass:"btn btn-default wysiwyg-colorpicker wysiwyg-fontcolor"},backgroundColor:{color:true,name:"B",model:"hiliteColor",cssclass:"btn btn-default wysiwyg-colorpicker wysiwyg-hiliteColor"}},
 					links:{type:"button",tabindex:"-1",unselectable:"on"},
 					tools:{type:"button",tabindex:"-1",unselectable:"on"},
-					styling:{type:"select",tabindex:"-1",unselectable:"on"},
+					styling:{type:"select",tabindex:"-1",unselectable:"on",font:{model:"fontName"},size:{model:"fontPixel"}},
 					};
 			
 			
@@ -98,7 +98,7 @@ Wysiwig.directive("richTextEditor", function($compile) {
 					html+="<div class='btn-group btn-group-sm wysiwyg-btn-group-margin'>"
 					html+="<"+stylesForButton.type;
 					html += " unselectable='on' tabindex='-1' class='form-control wysiwyg-select'";
-					html += 'ng-model="' + button + '" ';
+					html += 'ng-model="' + (stylesForButton[button]!=null?stylesForButton[button].model:button) + '" ';
 					html += 'ng-options=" item for item in '+ button + '"';
 					html += "ng-change='execCommand(\""+ button +"\")'";
 					html+="><option ></option></select></div>";
@@ -132,11 +132,11 @@ Wysiwig.directive("richTextEditor", function($compile) {
 			scope.execCommand = function(cmd, arg) {
 					if(cmd==='font'){
 						cmd="fontname";
-						arg=scope.font;
+						arg=scope.fontName;
 					}
 					if(cmd==='size'){
 						cmd="fontsize";
-						arg=scope.size;
+						arg=scope.fontPixel;
 					}
 					if(cmd==='image'){
 						cmd="insertimage";
